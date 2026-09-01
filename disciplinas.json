@@ -1,0 +1,15 @@
+[
+  {
+    "nome": "Windows",
+    "aulas": [
+      {
+        "numero": 1,
+        "conteudo": "Introdução ao Windows"
+      },
+      {
+        "numero": 2,
+        "conteudo": "Introdução parte 2"
+      }
+    ]
+  }
+]

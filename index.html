@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img src="img/logo.svg" alt="">
+    </header>
+
+    <main>
+        <h1 class="titulo">Segunda-Feira</h1>
+        <section>
+            <h1>Turmas</h1>
+            <div class="aulas">
+            <p>Quarta 8h</p>
+            <p>(Illustrator Aula: 4)</p>
+            </div>
+            <div class="aulas">
+            <p>Quinta 10h</p>
+            <p>(Photoshop Aula: 2)</p>
+            </div>
+            <div class="aulas">
+            <p>Sexta 17h</p>
+            <p>(HTML Aula: 6)</p>
+            </div>
+        </section>
+        <section>
+            <h1 class="titulo">Cronograma</h1>
+            <div class="disciplinas" onchange="disciplinaSelecionada();">
+                <select name="" id="disciplinas">
+                    <option value="0">Windows</option>
+                    <option value="1">Word</option>
+                    <option value="2">Photoshop</option>
+                    <option value="3">Illustrator</option>
+                    <option value="4">Redes Sociais</option>
+                    <option value="5">PowerPoint</option>
+                    <option value="6">Excel</option>
+                    <option value="7">HTML</option>
+                    <option value="8">CSS</option>
+                    <option value="9">Dreamweaver</option>
+                    <option value="10">Animate</option>
+                    <option value="11">After Effects</option>
+                </select>
+            </div>
+            <div class="conteudos">
+                <h1>Conteúdo</h1>
+                <ul>
+                    <li id="infoAula">Windows 1: Introdução</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h1 class="titulo">Cadastrar Turma</h1>
+            <div class="cadastro">
+                <label for="">Dia:</label>
+                <select name="" id="dia">
+                    <option value="">Segunda</option>
+                    <option value="">Terça</option>
+                    <option value="">Quarta</option>
+                    <option value="">Quinta</option>
+                    <option value="">Sexta</option>
+                    <option value="">Sábado</option>
+                </select>
+                <label for="">Hora</label>
+                <input type="time">
+            </div>
+        </section>
+    </main>
+
+    <nav>
+        <a href=""><img src="img/house.svg" alt=""></a>
+        <a href=""><img src="img/list-ul.svg" alt=""></a>
+        <a href=""><img src="img/plus-square.svg" alt=""></a>
+    </nav>
+    
+</body>
+<script src="js/logic.js"></script>
+</html>

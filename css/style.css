@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Betania+Patmos&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --cor-de-realce: #c1272d;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Montserrat", sans-serif;
+    min-height: 100dvh;
+}
+header{
+    padding: 10px;
+    text-align: center;
+}
+header img{
+    max-width: 70%;
+}
+main{
+    margin: 5px 10px 5px 10px;
+    padding: 5px;
+}
+
+nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+nav a{
+    width: 20%;
+    text-align: center;
+}
+nav a img{
+    min-width: 35%;
+}
+section{
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.aulas{
+    margin: 5px;
+    background-color: rgb(250, 250, 250);
+    border: 1px solid #DEDEDE;
+}
+.titulo{
+    color: var(--cor-de-realce);
+    text-align: center;
+    margin: 5px;
+}
+.conteudos{
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #DEDEDE;
+}
+.conteudos h1{
+    text-align: center;
+}
+.disciplinas select{
+    width: 60%;
+    padding: 2px;
+    margin-bottom: 10px;
+    text-align: center;
+} 
+.conteudos ul{
+    list-style-type: none;
+}
+.cadastro input, .cadastro select{
+    width: 30%;
+    padding: 2px;
+    text-align: center;
+}
