@@ -16,3 +16,10 @@ function disciplinaSelecionada(){
 }
 disciplinaSelecionada();
 
+function escolherTela(){
+    const telas = document.querySelectorAll('.tela');
+    console.log(telas);
+    //em desenvolvimento
+
+}
+escolherTela();

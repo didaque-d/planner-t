@@ -33,6 +33,7 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: white;
 }
 nav a{
     width: 20%;
@@ -46,6 +47,7 @@ section{
     text-align: center;
     margin-bottom: 10px;
     padding: 10px;
+    display: none;
 }
 .aulas{
     margin: 5px;
@@ -81,4 +83,7 @@ section{
     width: 30%;
     padding: 2px;
     text-align: center;
+}
+.ativo{
+    display: block;
 }
