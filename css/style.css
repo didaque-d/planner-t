@@ -11,6 +11,7 @@
 body{
     font-family: "Montserrat", sans-serif;
     min-height: 100dvh;
+    color: #2B2B2B;
 }
 header{
     padding: 10px;
@@ -46,8 +47,7 @@ section{
     border: 1px solid #DEDEDE;
     text-align: center;
     margin-bottom: 10px;
-    padding: 10px;
-    display: none;
+    padding: 10px;    
 }
 .aulas{
     margin: 5px;
@@ -58,6 +58,9 @@ section{
     color: var(--cor-de-realce);
     text-align: center;
     margin: 5px;
+}
+#dia{
+    margin-bottom: 15px;
 }
 .conteudos{
     text-align: left;
@@ -84,6 +87,27 @@ section{
     padding: 2px;
     text-align: center;
 }
-.ativo{
-    display: block;
+.oculto{
+    display: none;
+}
+section button{
+    background-color: var(--cor-de-realce);
+    text-align: center;
+    border: none;
+    padding: 5px;
+    width: 30%;
+    color: white;
+    border-radius: 3pc;
+}
+.cadastro-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 10px;
+    gap: 5px;
+}
+.cadastro-2{
+    text-align: right;
+}
+.cadastro-2 select, .cadastro-2 input{
+    text-align: center;
 }

@@ -12,8 +12,8 @@
     </header>
 
     <main>
-        <h1 class="titulo">Segunda-Feira</h1>
-        <section class="ativo tela">
+        <h1 id="dia" class="titulo"></h1>
+        <section id="home">
             <h1>Turmas</h1>
             <div class="aulas">
             <p>Quarta 8h</p>
@@ -28,7 +28,7 @@
             <p>(HTML Aula: 6)</p>
             </div>
         </section>
-        <section class="tela">
+        <section id="cronograma" class="oculto">
             <h1 class="titulo">Cronograma</h1>
             <div class="disciplinas" onchange="disciplinaSelecionada();">
                 <select name="" id="disciplinas">
@@ -53,7 +53,7 @@
                 </ul>
             </div>
         </section>
-        <section class="tela">
+        <section id="cadastro" class="oculto">
             <h1 class="titulo">Cadastrar Turma</h1>
             <div class="cadastro">
                 <label for="">Dia:</label>
@@ -65,16 +65,36 @@
                     <option value="">Sexta</option>
                     <option value="">Sábado</option>
                 </select>
-                <label for="">Hora</label>
+                <label for="">Hora:</label>
                 <input type="time">
+                </div>
+                <div class="cadastro-2">
+                <label>Disciplina Atual:</label>
+                <select id="">
+                    <option value="0">Windows</option>
+                    <option value="1">Word</option>
+                    <option value="2">Photoshop</option>
+                    <option value="3">Illustrator</option>
+                    <option value="4">Redes Sociais</option>
+                    <option value="5">PowerPoint</option>
+                    <option value="6">Excel</option>
+                    <option value="7">HTML</option>
+                    <option value="8">CSS</option>
+                    <option value="9">Dreamweaver</option>
+                    <option value="10">Animate</option>
+                    <option value="11">After Effects</option>
+                </select>
+                <label for="">Aula Atual: </label>
+                <input type="number" min="1" max="12" placeholder="ex: 5">
             </div>
+            <button>Cadastrar</button>
         </section>
     </main>
 
-    <nav>
-        <a href="#" data-id="1"><img src="img/house.svg" alt=""></a>
-        <a href="#" data-id="2"><img src="img/list-ul.svg" alt=""></a>
-        <a href="#" data-id="3"><img src="img/plus-square.svg" alt=""></a>
+    <nav id="minhas-telas" onclick="escolherTela()">
+        <a class="btn" href="#" data-id="1"><img src="img/house.svg" alt=""></a>
+        <a class="btn" href="#" data-id="2"><img src="img/list-ul.svg" alt=""></a>
+        <a class="btn" href="#" data-id="3"><img src="img/plus-square.svg" alt=""></a>
     </nav>
     
 </body>
