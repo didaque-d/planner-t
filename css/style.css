@@ -1,31 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Betania+Patmos&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
+:root {
     --cor-de-realce: #c1272d;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: "Montserrat", sans-serif;
-    min-height: 100dvh;
+    overflow: hidden;
+    height: 100dvh;
     color: #2B2B2B;
 }
-header{
+
+header {
     padding: 10px;
     text-align: center;
 }
-header img{
+
+header img {
     max-width: 70%;
 }
-main{
+
+main {
     margin: 5px 10px 5px 10px;
     padding: 5px;
 }
 
-nav{
+nav {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -36,33 +42,45 @@ nav{
     align-items: center;
     background-color: white;
 }
-nav a{
+
+nav a {
     width: 20%;
     text-align: center;
 }
-nav a img{
+
+nav a img {
     min-width: 35%;
 }
-section{
+
+section {
     border: 1px solid #DEDEDE;
     text-align: center;
     margin-bottom: 10px;
-    padding: 10px;    
+    padding: 10px;
+    overflow: auto;
+    max-height: 70dvh;
+    &::-webkit-scrollbar{
+        display: none;
+    }
 }
-.aulas{
+
+.aulas {
     margin: 5px;
     background-color: rgb(250, 250, 250);
     border: 1px solid #DEDEDE;
 }
-.titulo{
+
+.titulo {
     color: var(--cor-de-realce);
     text-align: center;
     margin: 5px;
 }
-#dia{
+
+#dia {
     margin-bottom: 15px;
 }
-.conteudos{
+
+.conteudos {
     text-align: left;
     padding-left: 20px;
     padding-right: 20px;
@@ -70,44 +88,70 @@ section{
     margin-right: 10px;
     border: 1px solid #DEDEDE;
 }
-.conteudos h1{
+
+.conteudos h1 {
     text-align: center;
 }
-.disciplinas select{
+
+.disciplinas select {
     width: 60%;
     padding: 2px;
     margin-bottom: 10px;
     text-align: center;
-} 
-.conteudos ul{
+}
+
+.conteudos ul {
     list-style-type: none;
 }
-.cadastro input, .cadastro select{
+
+.cadastro input,
+.cadastro select {
     width: 30%;
     padding: 2px;
     text-align: center;
 }
-.oculto{
+
+.oculto {
     display: none;
 }
-section button{
+
+section button {
     background-color: var(--cor-de-realce);
     text-align: center;
     border: none;
     padding: 5px;
     width: 30%;
     color: white;
-    border-radius: 3pc;
+    border-radius: 5px;
 }
-.cadastro-2{
+
+.cadastro-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-items: center;
     margin-bottom: 10px;
     gap: 5px;
 }
-.cadastro-2{
+
+.cadastro-2 {
     text-align: right;
 }
-.cadastro-2 select, .cadastro-2 input{
+
+.cadastro-2 select, .cadastro-2 input {
     text-align: center;
+}
+
+@media screen and (min-width: 1080px) {
+    header img {
+        max-width: 25%;
+    }
+
+    main {
+        margin-left: 350px;
+        margin-right: 350px;
+    }
+    
+    nav a img {
+        min-width: 10%;
+    }
 }
