@@ -2,6 +2,7 @@
 
 :root {
     --cor-de-realce: #c1272d;
+    --cor-de-divisoria: rgb(250, 250, 250);
 }
 
 * {
@@ -59,14 +60,15 @@ section {
     padding: 10px;
     overflow: auto;
     max-height: 70dvh;
-    &::-webkit-scrollbar{
+
+    &::-webkit-scrollbar {
         display: none;
     }
 }
 
 .aulas {
     margin: 5px;
-    background-color: rgb(250, 250, 250);
+    background-color: var(--cor-de-divisoria);
     border: 1px solid #DEDEDE;
 }
 
@@ -78,6 +80,8 @@ section {
 
 #dia {
     margin-bottom: 15px;
+    text-align: right;
+    font-size: 14px;
 }
 
 .conteudos {
@@ -115,6 +119,13 @@ section {
     display: none;
 }
 
+#infoAula li {
+    background-color: var(--cor-de-divisoria);
+    margin-bottom: 10px;
+    border: 1px solid #DEDEDE;
+    padding: 5px;
+}
+
 section button {
     background-color: var(--cor-de-realce);
     text-align: center;
@@ -127,18 +138,16 @@ section button {
 
 .cadastro-2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     justify-items: center;
     margin-bottom: 10px;
     gap: 5px;
-}
-
-.cadastro-2 {
     text-align: right;
 }
 
-.cadastro-2 select, .cadastro-2 input {
+.cadastro-2 select,
+.cadastro-2 input {
     text-align: center;
+    width: 60%;
 }
 
 @media screen and (min-width: 1080px) {
@@ -150,7 +159,7 @@ section button {
         margin-left: 350px;
         margin-right: 350px;
     }
-    
+
     nav a img {
         min-width: 10%;
     }

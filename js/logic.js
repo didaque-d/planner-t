@@ -170,7 +170,15 @@ const disciplinas = [
 function disciplinaSelecionada() {
     const valorSelecionado = document.getElementById("disciplinas").value;
     const { aulas } = disciplinas[valorSelecionado];
-    document.getElementById("infoAula").innerHTML = aulas.join("<br>");
+    
+    const container = document.getElementById("infoAula");
+    container.innerHTML = "";
+
+    aulas.forEach(aula => {
+        const item = document.createElement("li");
+        item.textContent = aula;
+        container.appendChild(item);
+    });
 }
 disciplinaSelecionada();
 
@@ -203,3 +211,4 @@ function escolherTela() {
     });
 }
 escolherTela();
+
