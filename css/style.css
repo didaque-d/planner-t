@@ -66,12 +66,12 @@ section {
     }
 }
 
-.aulas {
+
+.aulas-estilo{
     margin: 5px;
     background-color: var(--cor-de-divisoria);
     border: 1px solid #DEDEDE;
 }
-
 .titulo {
     color: var(--cor-de-realce);
     text-align: center;

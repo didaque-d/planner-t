@@ -245,7 +245,7 @@ function atualizarLista() {
     // Percorre o array e cria um li para cada item
     turmas.forEach((item) => {
         const li = document.createElement('li');
-        li.classList.add('aulas');
+        li.classList.add('aulas-estilo');
         li.innerHTML = `${item.dia} às ${item.hora} <br> ${item.disciplina}: ${item.aula}`;
         listaHtml.appendChild(li);
     });
