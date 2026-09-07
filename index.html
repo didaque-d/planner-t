@@ -15,16 +15,7 @@
         <section id="home">
             <h1>Turmas</h1>
             <div class="aulas">
-            <p>Quarta 8h</p>
-            <p>(Illustrator Aula: 4)</p>
-            </div>
-            <div class="aulas">
-            <p>Quinta 10h</p>
-            <p>(Photoshop Aula: 2)</p>
-            </div>
-            <div class="aulas">
-            <p>Sexta 17h</p>
-            <p>(HTML Aula: 6)</p>
+            <ul type="none"></ul>
             </div>
         </section>
         <section id="cronograma" class="oculto">
@@ -56,19 +47,19 @@
             <h1 class="titulo">Cadastrar Turma</h1>
             <div class="cadastro">
                 <label for="">Dia:</label>
-                <select name="" id="dia">
-                    <option value="">Segunda</option>
-                    <option value="">Terça</option>
-                    <option value="">Quarta</option>
-                    <option value="">Quinta</option>
-                    <option value="">Sexta</option>
-                    <option value="">Sábado</option>
+                <select name="" id="diaCadastro">
+                    <option value="1">Segunda</option>
+                    <option value="2">Terça</option>
+                    <option value="3">Quarta</option>
+                    <option value="4">Quinta</option>
+                    <option value="5">Sexta</option>
+                    <option value="6">Sábado</option>
                 </select>
                 <label for="">Hora:</label>
-                <input type="time">
+                <input type="time" id="horaCadastro">
                 <div class="cadastro-2">
                 <label>Disciplina Atual:</label>
-                <select id="">
+                <select id="disciplinaAtual">
                     <option value="0">Windows</option>
                     <option value="1">Word</option>
                     <option value="2">Photoshop</option>
@@ -83,11 +74,11 @@
                     <option value="11">After Effects</option>
                 </select>
                 <label for="">Aula Atual: </label>
-                <input type="number" min="1" max="12" placeholder="ex: 5">
+                <input id="aulaAtual" type="number" min="1" max="12" placeholder="ex: 5">
             </div>
                 </div>
                 
-            <button>Cadastrar</button>
+            <button onclick="obterCadastro()">Cadastrar</button>
         </section>
     </main>
 

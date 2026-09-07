@@ -212,3 +212,41 @@ function escolherTela() {
 }
 escolherTela();
 
+let turmas = [];
+
+function obterCadastro(){
+    const dia = document.getElementById('diaCadastro').value;
+    const hora = document.getElementById('horaCadastro').value;
+    const disciplinaAtual = document.getElementById('disciplinaAtual').value;
+    const aulaAtual = document.getElementById('aulaAtual').value;
+
+    diasDaSemanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"];
+    const disciplinas = ["Windows","Word","Photoshop","Illustrator","Redes Sociais","PowerPoint","Excel","HTML","CSS","Dreamweaver","Animate","After Effects"];
+
+    const novaAula = { dia: diasDaSemanas[dia], hora, disciplina: disciplinas[disciplinaAtual], aula: aulaAtual };
+    turmas.push(novaAula);
+
+    // Chama a função para atualizar a tela
+    atualizarLista();
+
+    console.log(dia);
+    console.log(hora);
+    console.log(disciplinaAtual);
+    console.log(aulaAtual);
+    
+}
+function atualizarLista() {
+    // Seleciona a ul dentro da div .aulas
+    const listaHtml = document.querySelector('.aulas ul');
+    
+    // Limpa a lista atual para evitar duplicações
+    listaHtml.innerHTML = '';
+
+    // Percorre o array e cria um li para cada item
+    turmas.forEach((item) => {
+        const li = document.createElement('li');
+        li.classList.add('aulas');
+        li.innerHTML = `${item.dia} às ${item.hora} <br> ${item.disciplina}: ${item.aula}`;
+        listaHtml.appendChild(li);
+    });
+}
