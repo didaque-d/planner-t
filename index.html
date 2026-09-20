@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="img/favicon.svg">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,7 +24,7 @@
         <section id="cronograma" class="oculto">
             <h1 class="titulo">Cronograma</h1>
             <div class="disciplinas" onchange="disciplinaSelecionada();">
-                <select name="" id="disciplinas">
+                <select name="disciplinas" id="disciplinas">
                     <option value="0">Windows</option>
                     <option value="1">Word</option>
                     <option value="2">Photoshop</option>
@@ -48,8 +49,8 @@
         <section id="cadastro" class="oculto">
             <h1 class="titulo">Cadastrar Turma</h1>
             <div class="cadastro">
-                <label for="">Dia:</label>
-                <select name="" id="diaCadastro">
+                <label for="diaCadastro">Dia:</label>
+                <select name="diaCadastro" id="diaCadastro">
                     <option value="1">Segunda</option>
                     <option value="2">Terça</option>
                     <option value="3">Quarta</option>
@@ -57,7 +58,7 @@
                     <option value="5">Sexta</option>
                     <option value="6">Sábado</option>
                 </select>
-                <label for="">Hora:</label>
+                <label for="horaCadastro">Hora:</label>
                 <input type="time" id="horaCadastro">
                 <div class="cadastro-2">
                 <label>Disciplina Atual:</label>
@@ -75,7 +76,7 @@
                     <option value="10">Animate</option>
                     <option value="11">After Effects</option>
                 </select>
-                <label for="">Aula Atual: </label>
+                <label for="aulaAtual">Aula Atual: </label>
                 <input id="aulaAtual" type="number" min="1" max="12" placeholder="ex: 5">
             </div>
                 </div>
@@ -89,7 +90,6 @@
         <a class="btn" href="#" data-id="2"><img src="img/list-ul.svg" alt=""></a>
         <a class="btn" href="#" data-id="3"><img src="img/plus-square.svg" alt=""></a>
     </nav>
-    
+    <script src="js/logic.js"></script>
 </body>
-<script src="js/logic.js"></script>
 </html>
