@@ -3,6 +3,7 @@
 :root {
     --cor-de-realce: #c1272d;
     --cor-de-divisoria: rgb(250, 250, 250);
+    --cor-fundo: linear-gradient(180deg, #84000E 0%, #1C0000 100%);
 }
 
 * {
