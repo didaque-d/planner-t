@@ -85,18 +85,23 @@
         </section>
         <section>
             <h1>Comportamento</h1>
+            <div class="comportamento">
             <label for="Aluno">Aluno:</label>
-            <select name="" id="">
-                <option value="0">Ana</option>
-                <option value="1">Maria</option>
-                <option value="2">João</option>
+            <select name="" id="aluno">
+                <option data-id="0">Ana</option>
+                <option data-id="1">Maria</option>
+                <option data-id="2">João</option>
             </select>
-            <label for="humor">Humor:</label>
+            </div>
             <div class="opt-humor">
-                <a href="#">Feliz</a>
-                <a href="#">Triste</a>
-                <a href="#">Irritado</a>
-                <a href="#">Desatento</a>
+            <h3>Humor</h3>
+            <div class="img-humor">
+                <a data-id="0" href="#"><img src="img/humor/feliz.svg" alt=""></a>
+                <a data-id="1" href="#"><img src="img/humor/triste.svg" alt=""></a>
+                <a data-id="2" href="#"><img src="img/humor/bravo.svg" alt=""></a>
+                <a data-id="3" href="#"><img src="img/humor/sono.svg" alt=""></a>
+                </div>
+                <button>Avaliar</button>
             </div>
             <h2>Registrado</h2>
             <ul type="none">
@@ -109,6 +114,7 @@
         <a class="btn" href="#" data-id="1"><img src="img/house.svg" alt=""></a>
         <a class="btn" href="#" data-id="2"><img src="img/list-ul.svg" alt=""></a>
         <a class="btn" href="#" data-id="3"><img src="img/plus-square.svg" alt=""></a>
+        <a class="btn" href="#" data-id="4"><img src="img/person-check.svg" alt=""></a>
     </nav>
     <script src="js/logic.js"></script>
 </body>

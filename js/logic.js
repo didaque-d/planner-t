@@ -170,7 +170,7 @@ const disciplinas = [
 function disciplinaSelecionada() {
     const valorSelecionado = document.getElementById("disciplinas").value;
     const { aulas } = disciplinas[valorSelecionado];
-    
+
     const container = document.getElementById("infoAula");
     container.innerHTML = "";
 
@@ -193,16 +193,16 @@ function escolherTela() {
             // Obtém o valor do atributo data-id
             const id = link.dataset.id;
             console.log("Tela selecionada:", id);
-            if(id == 1){
+            if (id == 1) {
                 document.getElementById("home").style.display = 'block';
                 document.getElementById("cronograma").style.display = 'none';
                 document.getElementById("cadastro").style.display = 'none';
-            }else if(id == 2){
+            } else if (id == 2) {
                 document.getElementById("home").style.display = 'none';
                 document.getElementById("cronograma").style.display = 'block';
                 document.getElementById("cadastro").style.display = 'none';
             }
-            else{
+            else {
                 document.getElementById("home").style.display = 'none';
                 document.getElementById("cronograma").style.display = 'none';
                 document.getElementById("cadastro").style.display = 'block';
@@ -214,14 +214,14 @@ escolherTela();
 
 let turmas = [];
 
-function obterCadastro(){
+function obterCadastro() {
     const dia = document.getElementById('diaCadastro').value;
     const hora = document.getElementById('horaCadastro').value;
     const disciplinaAtual = document.getElementById('disciplinaAtual').value;
     const aulaAtual = document.getElementById('aulaAtual').value;
 
     diasDaSemanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"];
-    const disciplinas = ["Windows","Word","Photoshop","Illustrator","Redes Sociais","PowerPoint","Excel","HTML","CSS","Dreamweaver","Animate","After Effects"];
+    const disciplinas = ["Windows", "Word", "Photoshop", "Illustrator", "Redes Sociais", "PowerPoint", "Excel", "HTML", "CSS", "Dreamweaver", "Animate", "After Effects"];
 
     const novaAula = { dia: diasDaSemanas[dia], hora, disciplina: disciplinas[disciplinaAtual], aula: aulaAtual };
     turmas.push(novaAula);
@@ -233,12 +233,12 @@ function obterCadastro(){
     console.log(hora);
     console.log(disciplinaAtual);
     console.log(aulaAtual);
-    
+
 }
 function atualizarLista() {
     // Seleciona a ul dentro da div .aulas
     const listaHtml = document.querySelector('.aulas ul');
-    
+
     // Limpa a lista atual para evitar duplicações
     listaHtml.innerHTML = '';
 
@@ -250,3 +250,22 @@ function atualizarLista() {
         listaHtml.appendChild(li);
     });
 }
+
+//função de comportamento
+
+const alunos = ["Ana", "João", "Maria"];
+
+function avaliarComportamento() {
+    document.getElementById("aluno").addEventListener("change", (event) => {
+        let opcaoSelecionada = event.target.selectedOptions[0];
+        let id = opcaoSelecionada.dataset.id;
+        console.log(id);
+    });
+    document.getElementsByClassName('img-humor')[0].addEventListener("click", (event) => {
+        let humorSelecionado = event.target.selectedOptions[0];
+        let valor = humorSelecionado.dataset.id;
+        console.log(valor);
+    });
+
+}
+avaliarComportamento();
