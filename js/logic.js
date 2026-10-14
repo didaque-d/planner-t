@@ -212,29 +212,46 @@ function escolherTela() {
 }
 escolherTela();
 
-let turmas = [];
+// 1. Inicializa o array 'turmas' pegando os dados salvos do localStorage
+// Se não houver nada salvo, inicia como um array vazio []
+let turmas = JSON.parse(localStorage.getItem('turmas')) || [];
 
-function obterCadastro(){
+function obterCadastro() {
     const dia = document.getElementById('diaCadastro').value;
     const hora = document.getElementById('horaCadastro').value;
     const disciplinaAtual = document.getElementById('disciplinaAtual').value;
     const aulaAtual = document.getElementById('aulaAtual').value;
 
-    diasDaSemanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"];
-    const disciplinas = ["Windows","Word","Photoshop","Illustrator","Redes Sociais","PowerPoint","Excel","HTML","CSS","Dreamweaver","Animate","After Effects"];
+    const diasDaSemanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"];
+    const disciplinas = ["Windows", "Word", "Photoshop", "Illustrator", "Redes Sociais", "PowerPoint", "Excel", "HTML", "CSS", "Dreamweaver", "Animate", "After Effects"];
 
-    const novaAula = { dia: diasDaSemanas[dia], hora, disciplina: disciplinas[disciplinaAtual], aula: aulaAtual };
+    const novaAula = { 
+        dia: diasDaSemanas[dia], 
+        hora, 
+        disciplina: disciplinas[disciplinaAtual], 
+        aula: aulaAtual 
+    };
+
     turmas.push(novaAula);
+
+    // 2. Salva o array atualizado no localStorage
+    salvarNoLocalStorage();
 
     // Chama a função para atualizar a tela
     atualizarLista();
+
 
     console.log(dia);
     console.log(hora);
     console.log(disciplinaAtual);
     console.log(aulaAtual);
-    
+
+    // confirmar alteração
+
+    document.getElementById("msgConfirmar").innerHTML = "Turma adicionada com sucesso!";
 }
+
+
 function atualizarLista() {
     // Seleciona a ul dentro da div .aulas
     const listaHtml = document.querySelector('.aulas ul');
@@ -250,3 +267,11 @@ function atualizarLista() {
         listaHtml.appendChild(li);
     });
 }
+
+// 3. Função responsável por converter e salvar no localStorage
+function salvarNoLocalStorage() {
+    localStorage.setItem('turmas', JSON.stringify(turmas));
+}
+
+// 4. Garante que a lista seja renderizada na tela assim que a página carregar
+document.addEventListener('DOMContentLoaded', atualizarLista);
