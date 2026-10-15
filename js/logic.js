@@ -1,11 +1,9 @@
 function mostrarDia() {
-    diasDaSemanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"];
+    const diasDaSemanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
 
     const d = new Date();
     let dia = diasDaSemanas[d.getDay()];
-    console.log(dia);
-    document.getElementById("dia").innerHTML = diasDaSemanas[d.getDay()];
-
+    document.getElementById("dia").innerHTML = dia;
 }
 mostrarDia();
 
@@ -182,71 +180,162 @@ function disciplinaSelecionada() {
 }
 disciplinaSelecionada();
 
+// Troca de telas via navegação
+function mudarTela(idTela) {
+    const home = document.getElementById("home");
+    const cronograma = document.getElementById("cronograma");
+    const cadastro = document.getElementById("cadastro");
+
+    home.classList.add("oculto");
+    cronograma.classList.add("oculto");
+    cadastro.classList.add("oculto");
+
+    if (idTela == 1) {
+        home.classList.remove("oculto");
+    } else if (idTela == 2) {
+        cronograma.classList.remove("oculto");
+    } else if (idTela == 3) {
+        cadastro.classList.remove("oculto");
+    }
+}
 
 function escolherTela() {
     const navTelas = document.getElementById("minhas-telas");
     navTelas.addEventListener("click", function (event) {
-        // Procura a tag <a> mais próxima a partir do elemento clicado (mesmo se for a <img>)
         const link = event.target.closest("a.btn");
         if (link) {
-            event.preventDefault(); // Evita o salto do href="#"
-            // Obtém o valor do atributo data-id
+            event.preventDefault();
             const id = link.dataset.id;
-            console.log("Tela selecionada:", id);
-            if(id == 1){
-                document.getElementById("home").style.display = 'block';
-                document.getElementById("cronograma").style.display = 'none';
-                document.getElementById("cadastro").style.display = 'none';
-            }else if(id == 2){
-                document.getElementById("home").style.display = 'none';
-                document.getElementById("cronograma").style.display = 'block';
-                document.getElementById("cadastro").style.display = 'none';
-            }
-            else{
-                document.getElementById("home").style.display = 'none';
-                document.getElementById("cronograma").style.display = 'none';
-                document.getElementById("cadastro").style.display = 'block';
-            }
+            mudarTela(id);
         }
     });
 }
 escolherTela();
 
-let turmas = [];
+// Banco de dados em localStorage
+let turmas = JSON.parse(localStorage.getItem('turmas')) || [];
 
-function obterCadastro(){
-    const dia = document.getElementById('diaCadastro').value;
+const listaDias = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+const listaDisciplinas = ["Windows", "Word", "Photoshop", "Illustrator", "Redes Sociais", "PowerPoint", "Excel", "HTML", "CSS", "Dreamweaver", "Animate", "After Effects"];
+
+function obterCadastro() {
+    const diaVal = document.getElementById('diaCadastro').value;
     const hora = document.getElementById('horaCadastro').value;
-    const disciplinaAtual = document.getElementById('disciplinaAtual').value;
+    const disciplinaVal = document.getElementById('disciplinaAtual').value;
     const aulaAtual = document.getElementById('aulaAtual').value;
+    const editIndex = parseInt(document.getElementById('editIndex').value);
 
-    diasDaSemanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"];
-    const disciplinas = ["Windows","Word","Photoshop","Illustrator","Redes Sociais","PowerPoint","Excel","HTML","CSS","Dreamweaver","Animate","After Effects"];
+    if (!hora || !aulaAtual) {
+        alert("Por favor, preencha a hora e o número da aula!");
+        return;
+    }
 
-    const novaAula = { dia: diasDaSemanas[dia], hora, disciplina: disciplinas[disciplinaAtual], aula: aulaAtual };
-    turmas.push(novaAula);
+    const novaAula = { 
+        diaValue: diaVal,
+        dia: listaDias[diaVal], 
+        hora, 
+        disciplinaValue: disciplinaVal,
+        disciplina: listaDisciplinas[disciplinaVal], 
+        aula: aulaAtual 
+    };
 
-    // Chama a função para atualizar a tela
+    if (editIndex === -1) {
+        // Novo Cadastro
+        turmas.push(novaAula);
+    } else {
+        // Editar cadastro existente
+        turmas[editIndex] = novaAula;
+    }
+
+    salvarNoLocalStorage();
     atualizarLista();
+    limparFormulario();
 
-    console.log(dia);
-    console.log(hora);
-    console.log(disciplinaAtual);
-    console.log(aulaAtual);
-    
+    // Direciona o usuário de volta para a primeira tela (Home) para ver o resultado
+    mudarTela(1);
 }
+
 function atualizarLista() {
-    // Seleciona a ul dentro da div .aulas
     const listaHtml = document.querySelector('.aulas ul');
-    
-    // Limpa a lista atual para evitar duplicações
     listaHtml.innerHTML = '';
 
-    // Percorre o array e cria um li para cada item
-    turmas.forEach((item) => {
+    if (turmas.length === 0) {
+        listaHtml.innerHTML = '<li>Nada ainda...</li>';
+        return;
+    }
+
+    turmas.forEach((item, index) => {
         const li = document.createElement('li');
         li.classList.add('aulas-estilo');
-        li.innerHTML = `${item.dia} às ${item.hora} <br> ${item.disciplina}: ${item.aula}`;
+
+        li.innerHTML = `
+            <div class="turma-info">
+                <strong>${item.dia}</strong> às <strong>${item.hora}</strong><br>
+                ${item.disciplina}: Aula ${item.aula}
+            </div>
+            <div class="turma-acoes">
+                <button class="btn-acao btn-editar" onclick="prepararEdicao(${index})">Editar</button>
+                <button class="btn-acao btn-remover" onclick="removerTurma(${index})">Excluir</button>
+            </div>
+        `;
         listaHtml.appendChild(li);
     });
+}
+
+function removerTurma(index) {
+    if (confirm("Deseja realmente remover esta turma?")) {
+        turmas.splice(index, 1);
+        salvarNoLocalStorage();
+        atualizarLista();
+        
+        if (parseInt(document.getElementById('editIndex').value) === index) {
+            limparFormulario();
+        }
+    }
+}
+
+function prepararEdicao(index) {
+    const turma = turmas[index];
+
+    // Preenche os campos do formulário com os dados da turma selecionada
+    document.getElementById('diaCadastro').value = turma.diaValue || 1;
+    document.getElementById('horaCadastro').value = turma.hora;
+    document.getElementById('disciplinaAtual').value = turma.disciplinaValue || 0;
+    document.getElementById('aulaAtual').value = turma.aula;
+    document.getElementById('editIndex').value = index;
+
+    // Atualiza o formulário para modo edição
+    document.getElementById('tituloCadastro').textContent = "Editar Turma";
+    document.getElementById('btnSalvar').textContent = "Salvar Alterações";
+    document.getElementById('btnCancelar').classList.remove('oculto');
+
+    // Abre a tela de cadastro/edição
+    mudarTela(3);
+}
+
+function limparFormulario() {
+    document.getElementById('diaCadastro').value = "1";
+    document.getElementById('horaCadastro').value = "";
+    document.getElementById('disciplinaAtual').value = "0";
+    document.getElementById('aulaAtual').value = "";
+    document.getElementById('editIndex').value = "-1";
+
+    document.getElementById('tituloCadastro').textContent = "Cadastrar Turma";
+    document.getElementById('btnSalvar').textContent = "Cadastrar";
+    document.getElementById('btnCancelar').classList.add('oculto');
+    document.getElementById("msgConfirmar").innerHTML = "";
+}
+
+function salvarNoLocalStorage() {
+    localStorage.setItem('turmas', JSON.stringify(turmas));
+}
+
+document.addEventListener('DOMContentLoaded', atualizarLista);
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then((reg) => console.log('Service Worker registrado!', reg))
+      .catch((err) => console.error('Erro ao registrar Service Worker:', err));
+  });
 }

@@ -66,12 +66,50 @@ section {
     }
 }
 
+/* --- Card das Turmas --- */
+.aulas ul {
+    padding: 0;
+}
 
-.aulas-estilo{
-    margin: 5px;
+.aulas-estilo {
+    margin: 8px 5px;
     background-color: var(--cor-de-divisoria);
     border: 1px solid #DEDEDE;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
 }
+
+.turma-info {
+    flex-grow: 1;
+}
+
+.turma-acoes {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-acao {
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background-color: #28a745;
+}
+
+.btn-remover {
+    background-color: var(--cor-de-realce);
+}
+
 .titulo {
     color: var(--cor-de-realce);
     text-align: center;
@@ -116,7 +154,7 @@ section {
 }
 
 .oculto {
-    display: none;
+    display: none !important;
 }
 
 #infoAula li {
@@ -126,14 +164,26 @@ section {
     padding: 5px;
 }
 
+.botoes-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 section button {
     background-color: var(--cor-de-realce);
     text-align: center;
     border: none;
-    padding: 5px;
-    width: 30%;
+    padding: 8px;
+    min-width: 30%;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background-color: #6c757d !important;
 }
 
 .cadastro-2 {

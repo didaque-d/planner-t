@@ -6,6 +6,9 @@
     <title>Planner</title>
     <link rel="icon" href="img/favicon.svg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+<!-- Dica: Adicione também a cor da barra de status no mobile -->
+<meta name="theme-color" content="#c1272d">
 </head>
 <body>
     <header>
@@ -13,14 +16,18 @@
     </header>
     <main>
         <h1 id="dia" class="titulo"></h1>
+        
+        <!-- Tela 1: Home (Turmas Cadastradas) -->
         <section id="home">
             <h1>Turmas</h1>
             <div class="aulas">
-            <ul type="none">
-                Nada ainda...
-            </ul>
+                <ul type="none">
+                    Nada ainda...
+                </ul>
             </div>
         </section>
+
+        <!-- Tela 2: Cronograma (Consulta) -->
         <section id="cronograma" class="oculto">
             <h1 class="titulo">Cronograma</h1>
             <div class="disciplinas" onchange="disciplinaSelecionada();">
@@ -46,8 +53,14 @@
                 </ul>
             </div>
         </section>
+
+        <!-- Tela 3: Cadastro / Edição -->
         <section id="cadastro" class="oculto">
-            <h1 class="titulo">Cadastrar Turma</h1>
+            <h1 id="tituloCadastro" class="titulo">Cadastrar Turma</h1>
+            <div id="msgConfirmar"></div>
+            
+            <input type="hidden" id="editIndex" value="-1">
+
             <div class="cadastro">
                 <label for="diaCadastro">Dia:</label>
                 <select name="diaCadastro" id="diaCadastro">
@@ -61,27 +74,30 @@
                 <label for="horaCadastro">Hora:</label>
                 <input type="time" id="horaCadastro">
                 <div class="cadastro-2">
-                <label>Disciplina Atual:</label>
-                <select id="disciplinaAtual">
-                    <option value="0">Windows</option>
-                    <option value="1">Word</option>
-                    <option value="2">Photoshop</option>
-                    <option value="3">Illustrator</option>
-                    <option value="4">Redes Sociais</option>
-                    <option value="5">PowerPoint</option>
-                    <option value="6">Excel</option>
-                    <option value="7">HTML</option>
-                    <option value="8">CSS</option>
-                    <option value="9">Dreamweaver</option>
-                    <option value="10">Animate</option>
-                    <option value="11">After Effects</option>
-                </select>
-                <label for="aulaAtual">Aula Atual: </label>
-                <input id="aulaAtual" type="number" min="1" max="12" placeholder="ex: 5">
-            </div>
+                    <label>Disciplina Atual:</label>
+                    <select id="disciplinaAtual">
+                        <option value="0">Windows</option>
+                        <option value="1">Word</option>
+                        <option value="2">Photoshop</option>
+                        <option value="3">Illustrator</option>
+                        <option value="4">Redes Sociais</option>
+                        <option value="5">PowerPoint</option>
+                        <option value="6">Excel</option>
+                        <option value="7">HTML</option>
+                        <option value="8">CSS</option>
+                        <option value="9">Dreamweaver</option>
+                        <option value="10">Animate</option>
+                        <option value="11">After Effects</option>
+                    </select>
+                    <label for="aulaAtual">Aula Atual: </label>
+                    <input id="aulaAtual" type="number" min="1" max="12" placeholder="ex: 5">
                 </div>
+            </div>
                 
-            <button onclick="obterCadastro()">Cadastrar</button>
+            <div class="botoes-form">
+                <button id="btnSalvar" onclick="obterCadastro()">Cadastrar</button>
+                <button id="btnCancelar" class="btn-cancelar oculto" onclick="limparFormulario()">Cancelar</button>
+            </div>
         </section>
     </main>
 
