@@ -183,34 +183,36 @@ function disciplinaSelecionada() {
 disciplinaSelecionada();
 
 
-function escolherTela() {
-    const navTelas = document.getElementById("minhas-telas");
-    navTelas.addEventListener("click", function (event) {
-        // Procura a tag <a> mais próxima a partir do elemento clicado (mesmo se for a <img>)
-        const link = event.target.closest("a.btn");
-        if (link) {
-            event.preventDefault(); // Evita o salto do href="#"
-            // Obtém o valor do atributo data-id
+function inicializarNavegacao() {
+    const navs = document.querySelectorAll(".minhas-telas");
+
+    navs.forEach(nav => {
+        nav.addEventListener("click", function (event) {
+            const link = event.target.closest("a.btn");
+            if (!link) return;
+
+            event.preventDefault();
             const id = link.dataset.id;
-            console.log("Tela selecionada:", id);
-            if(id == 1){
+
+            // Oculta todas as seções
+            document.getElementById("home").style.display = 'none';
+            document.getElementById("cronograma").style.display = 'none';
+            document.getElementById("cadastro").style.display = 'none';
+
+            // Exibe a seção correspondente
+            if (id === "1") {
                 document.getElementById("home").style.display = 'block';
-                document.getElementById("cronograma").style.display = 'none';
-                document.getElementById("cadastro").style.display = 'none';
-            }else if(id == 2){
-                document.getElementById("home").style.display = 'none';
+            } else if (id === "2") {
                 document.getElementById("cronograma").style.display = 'block';
-                document.getElementById("cadastro").style.display = 'none';
-            }
-            else{
-                document.getElementById("home").style.display = 'none';
-                document.getElementById("cronograma").style.display = 'none';
+            } else if (id === "3") {
                 document.getElementById("cadastro").style.display = 'block';
             }
-        }
+        });
     });
 }
-escolherTela();
+
+// Inicializa o evento uma única vez
+inicializarNavegacao();
 
 let turmas = [];
 

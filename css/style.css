@@ -163,4 +163,26 @@ section button {
     nav a img {
         min-width: 10%;
     }
+    .minhas-telas{
+        display: none;
+        position: unset;
+    }
+    .nav-pc{
+        display: flex;
+        padding: 15px;
+        margin-top: 10px;
+        background-color: var(--cor-de-realce);
+    }
+    .nav-pc a{
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+        width: 20%;
+    }
+    .nav-pc a:hover{
+        background-color: white;
+        color: black;
+    }
 }
